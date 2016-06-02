@@ -5,7 +5,8 @@ module.exports = {
   entry: './src/splash.js',
   output: {
     path: 'dist',
-    filename: 'splash.bundle.js'
+    filename: 'splash.bundle.js',
+    publicPath: '/dist/'
   },
   module: {
     loaders: [{
