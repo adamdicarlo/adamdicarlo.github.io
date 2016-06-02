@@ -6,7 +6,7 @@
   "main": "src/splash.js",
   "scripts": {
     "build": "rm -rf dist; webpack -p",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --port=3072",
     "publish": "npm run build && git add dist && git commit -m \":tada: Publish at `date`\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
