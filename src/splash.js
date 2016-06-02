@@ -43,7 +43,7 @@ let direction = 1
 function scheduleEvents () {
   setTimeout(() => {
     about.el = document.querySelector('#about')
-    about.el.classList = ['show']
+    about.el.classList.add('show')
   }, 2000)
 }
 
