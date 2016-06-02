@@ -13,7 +13,9 @@ let about = {
 }
 
 domready(() => {
-  canvas.style = 'position: fixed; left: 0; top: 0'
+  canvas.style.position = 'fixed'
+  canvas.style.left = 0
+  canvas.style.top = 0
   resizeCanvas()
   document.body.appendChild(canvas)
 
