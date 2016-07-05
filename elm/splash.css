@@ -1,0 +1,61 @@
+@import '~normalize.css';
+
+#about {
+  background: rgba(25, 25, 25, 0.8);
+  border-radius: 2px;
+  bottom: 20px;
+  color: #D0D0D0;
+  font-family: Inconsolata, monospace;
+  opacity: 0;
+  padding: 0 20px 10px;
+  position: fixed;
+  right: 20px;
+  text-align: center;
+  transform: scale(1);
+  transition:
+    opacity 1s ease,
+    background 350ms ease,
+    color 350ms ease,
+    transform 350ms ease;
+  width: 400px;
+  z-index: 1;
+}
+#about.show {
+  opacity: 1;
+}
+#about.show:hover {
+  background: rgba(25, 25, 25, 1);
+  color: #FFF;
+  transform: scale(1.05);
+}
+
+h1, h2 {
+  font-weight: 400;
+}
+
+a,
+a:link,
+a:hover,
+a:focus,
+a:visited,
+a:active {
+  color: #1AAFAE;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+@media (max-width: 479px) {
+  #about {
+    width: auto;
+    left: 0.5em;
+    right: 0.5em;
+    bottom: 0.5em;
+  }
+  li {
+    margin-bottom: 0.5em;
+  }
+}
