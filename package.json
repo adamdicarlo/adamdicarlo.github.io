@@ -1,15 +1,13 @@
 {
-  "name": "splash",
+  "name": "adamdicarlo.com",
   "private": true,
   "version": "1.0.0",
-  "description": "Personal splash-page website of Adam DiCarlo, at adamdicarlo.com",
+  "description": "Personal splash-page website of Adam DiCarlo",
   "scripts": {
     "build": "webpack -p",
-    "start": "webpack-dev-server --port=3072",
-    "publish": "npm run build && git add dist && git commit -m \":tada: Publish at `date`\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --port=3072"
   },
-  "author": "Adam DiCarlo <adam.dicarlo@gmail.com>",
+  "author": "Adam DiCarlo <97462+adamdicarlo@users.noreply.github.com>",
   "postcss": {
     "map": true,
     "plugins": {
