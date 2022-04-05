@@ -3,34 +3,18 @@
   "private": true,
   "version": "1.0.0",
   "description": "Personal splash-page website of Adam DiCarlo",
+  "source": "src/index.html",
   "scripts": {
-    "build": "webpack -p",
-    "start": "webpack-dev-server --port=3072"
+    "build": "rm -rf wwwroot; parcel build --dist-dir wwwroot",
+    "start": "rm -rf wwwroot; parcel --dist-dir wwwroot"
   },
   "author": "Adam DiCarlo <97462+adamdicarlo@users.noreply.github.com>",
-  "postcss": {
-    "map": true,
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
   "devDependencies": {
-    "autoprefixer": "^9.4.3",
-    "clean-webpack-plugin": "^1.0.0",
-    "css-loader": "^2.1.0",
-    "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.5.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.1",
-    "postcss-loader": "^3.0.0",
-    "terser-webpack-plugin": "^1.2.1",
-    "webpack": "^4.28.3",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.14"
+    "@parcel/transformer-inline-string": "2.4.1",
+    "parcel": "^2.4.1"
   },
   "dependencies": {
-    "colorfactory": "^0.1.4",
-    "domready": "^1.0.8",
-    "normalize.css": "^4.1.1",
-    "raf": "^3.2.0"
+    "colord": "^2.9.2",
+    "normalize.css": "^8.0.1"
   }
 }

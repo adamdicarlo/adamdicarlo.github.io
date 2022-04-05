@@ -1,73 +1,101 @@
-import domready from 'domready'
-import raf from 'raf'
-import {ColorFactory} from 'colorfactory'
-import 'normalize.css/normalize.css'
-import './splash.css'
+import { colord, random } from "colord"
 
-const canvas = document.createElement('canvas')
+const canvas = document.createElement("canvas")
 let width, height
 let about = {
   el: undefined,
   width: undefined,
-  height: undefined
+  height: undefined,
 }
 
-domready(() => {
-  canvas.style.position = 'fixed'
+document.addEventListener("DOMContentLoaded", () => {
+  canvas.style.position = "fixed"
   canvas.style.left = 0
   canvas.style.top = 0
   resizeCanvas()
   document.body.appendChild(canvas)
 
-  window.addEventListener('resize', () => {
+  window.addEventListener("resize", () => {
     resizeCanvas()
   })
-  raf(render)
+  window.requestAnimationFrame(render)
   scheduleEvents()
 })
 
-function resizeCanvas () {
+function resizeCanvas() {
   canvas.width = width = window.innerWidth
   canvas.height = height = window.innerHeight
 }
 
-const twoPi = Math.PI * 2.0
-const numColors = 720
-const theta = twoPi / 720.0
-const startColors = ColorFactory.interpolate('#05FA8C', '#E73B57', numColors)
-const endColors = ColorFactory.interpolate('#E73B57', '#05FA8C', numColors)
-let color = 0
-let angle = 0.0
-let direction = 1
-
-function scheduleEvents () {
+function scheduleEvents() {
   setTimeout(() => {
-    about.el = document.querySelector('#about')
-    about.el.classList.add('show')
+    about.el = document.querySelector("#about")
+    about.el.classList.remove("hide")
+    about.el.classList.add("show")
   }, 2000)
+
+  setTimeout(() => {
+    const button = document.querySelector("#randomize")
+    button.classList.remove("hide")
+    button.classList.add("show")
+    button.addEventListener("click", randomize)
+  }, 7000)
 }
 
-function render () {
-  const context = canvas.getContext('2d')
-  const cos = Math.cos(angle)
-  const sin = Math.sin(angle)
-  const gradient = context.createLinearGradient(0, 0, cos * width, sin * height)
+const minFramesBetweenReverse = 500
+const toRadians = Math.PI / 180
+let colors = [
+  colord("#025bb7"),
+  colord("#9e144a"),
+  colord("#88e301"),
+  colord("#ffd53c"),
+]
+let frameIncrement = 1
+let framesSinceReverse = 0
+let frame = 0
+let theta = 0.25
 
-  gradient.addColorStop(0, startColors[color])
-  gradient.addColorStop(1, endColors[color])
+function randomize() {
+  colors = Array(colors.length)
+    .fill(undefined)
+    .map(() => random())
+  console.log("New colors: ", colors.map((c) => c.toHex()).join(", "))
+  frameIncrement = Math.random() > 0.5 ? 1 : -1
+  theta = Math.random()
+}
+
+function render() {
+  const context = canvas.getContext("2d")
+
+  const angle = frame * theta
+  const radians = angle * toRadians
+  frame += frameIncrement
+  framesSinceReverse++
+
+  const cos = Math.cos(radians)
+  const sin = Math.sin(radians)
+  const halfWidth = width / 2
+  const halfHeight = height / 2
+  const xRotated = cos * halfWidth
+  const yRotated = sin * halfHeight
+  const gradient = context.createLinearGradient(
+    -xRotated + halfWidth,
+    -yRotated + halfHeight,
+    xRotated + halfWidth,
+    yRotated + halfHeight
+  )
+
+  gradient.addColorStop(0, colors[0].rotate(angle).toRgbString())
+  gradient.addColorStop(0.3, colors[1].rotate(angle + 90).toRgbString())
+  gradient.addColorStop(0.7, colors[3].rotate(angle - 90).toRgbString())
+  gradient.addColorStop(1.0, colors[3].rotate(-angle).toRgbString())
   context.fillStyle = gradient
   context.fillRect(0, 0, width, height)
 
-  angle = angle + theta
-  if (angle > twoPi) {
-    angle -= twoPi
+  if (framesSinceReverse > minFramesBetweenReverse && Math.random() < 0.001) {
+    framesSinceReverse = 0
+    frameIncrement = -frameIncrement
   }
 
-  color += direction
-  if (color < 0 || color >= numColors) {
-    color = Math.max(Math.min(color, numColors - 1), 0)
-    direction = -direction
-  }
-
-  raf(render)
+  window.requestAnimationFrame(render)
 }

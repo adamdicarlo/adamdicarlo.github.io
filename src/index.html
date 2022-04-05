@@ -4,16 +4,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Adam DiCarlo’s personal site</title>
   <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+  <style rel="stylesheet" type="text/css">
+    @import "npm:normalize.css/normalize.css";
+    @import "./splash.css";
+  </style>
+  <script type="module">import "./splash.js"</script>
 </head>
 <body>
-  <div id="about">
+  <main id="about" class="hide">
     <h1>Adam DiCarlo</h1>
-    <h2>Software Engineer in Portland, OR</h2>
-    <ul>
-      <li>Twitter: <a href="https://twitter.com/adamdicarlo">@adamdicarlo</a></li>
-      <li>GitHub: <a href="https://github.com/adamdicarlo">@adamdicarlo</a></li>
-      <li>npm: <a href="https://www.npmjs.com/~adamdicarlo">adamdicarlo</a></li>
-      <li>Résumé: <a href="https://www.linkedin.com/in/adamdicarlo">LinkedIn</a></li>
+    <h2>Front-End Web Engineer</h2>
+    <ul class="links">
+      <li><a href="https://github.com/adamdicarlo">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/adamdicarlo">LinkedIn</a></li>
+      <li><a href="https://twitter.com/adamdicarlo">Twitter</a></li>
+      <li><a href="https://www.npmjs.com/~adamdicarlo">npm</a></li>
     </ul>
-  </div>
+  </main>
+  <button id="randomize" class="hide">Randomize</button>
 </body>
