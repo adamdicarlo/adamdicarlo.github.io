@@ -3,14 +3,19 @@
   "private": true,
   "version": "1.0.0",
   "description": "Personal splash-page website of Adam DiCarlo",
-  "source": "src/index.html",
+  "source": [
+    "src/index.html",
+    "src/wordle-time-travel/index.html"
+  ],
   "scripts": {
     "build": "rm -rf wwwroot; parcel build --dist-dir wwwroot",
     "start": "rm -rf wwwroot; parcel --dist-dir wwwroot"
   },
   "author": "Adam DiCarlo <97462+adamdicarlo@users.noreply.github.com>",
   "devDependencies": {
+    "@parcel/packager-raw-url": "2.4.1",
     "@parcel/transformer-inline-string": "2.4.1",
+    "@parcel/transformer-webmanifest": "2.4.1",
     "parcel": "^2.4.1"
   },
   "dependencies": {

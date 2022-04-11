@@ -2,3 +2,4 @@ wwwroot/
 node_modules/
 npm-debug*.log
 .parcel-cache
+*~
