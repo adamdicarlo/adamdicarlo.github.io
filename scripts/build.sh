@@ -9,5 +9,5 @@ cd external
 git clone --depth=1 https://github.com/adamdicarlo/elm-tangly
 cd elm-tangly
 yarn --frozen-lockfile
-yarn build
+yarn build --public-url /elm-tangly
 cp -au dist ../../wwwroot/elm-tangly
