@@ -1,5 +1,9 @@
 wwwroot/
+external/
 node_modules/
 npm-debug*.log
 .parcel-cache
 *~
+
+# Local Netlify folder
+.netlify
