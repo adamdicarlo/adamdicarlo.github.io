@@ -13,13 +13,13 @@
   },
   "author": "Adam DiCarlo <97462+adamdicarlo@users.noreply.github.com>",
   "devDependencies": {
-    "@parcel/packager-raw-url": "2.4.1",
-    "@parcel/transformer-inline-string": "2.4.1",
-    "@parcel/transformer-webmanifest": "2.4.1",
-    "parcel": "^2.4.1"
+    "@parcel/packager-raw-url": "2.8.3",
+    "@parcel/transformer-inline-string": "2.8.3",
+    "@parcel/transformer-webmanifest": "2.8.3",
+    "parcel": "^2.8.3"
   },
   "dependencies": {
-    "colord": "^2.9.2",
+    "colord": "^2.9.3",
     "normalize.css": "^8.0.1"
   }
 }
