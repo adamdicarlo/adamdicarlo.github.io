@@ -14,11 +14,11 @@
 #about {
   background: rgba(25, 25, 25, 0.8);
   border-radius: 3px;
-  bottom: 20px;
+  bottom: 30px;
   color: #d0d0d0;
-  padding: 20px;
+  padding: 24px 30px;
   position: fixed;
-  right: 20px;
+  right: 30px;
   transform: scale(1);
   transition: opacity 1s ease, background 100ms ease, color 100ms ease,
     transform 100ms linear;
@@ -82,7 +82,7 @@ li:not(:last-child)::after {
 }
 
 button {
-  padding: 4px 12px 6px;
+  padding: 5px 12px 6px;
 
   border: 0;
   border-radius: 3px;
