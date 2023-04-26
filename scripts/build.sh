@@ -11,3 +11,10 @@ cd elm-tangly
 yarn --frozen-lockfile
 yarn build --public-url /elm-tangly
 cp -au dist ../../wwwroot/elm-tangly
+cd ..
+
+git clone --depth=1 https://github.com/adamdicarlo/elm-wordy
+cd elm-wordy
+yarn --frozen-lockfile
+yarn build --public-url /elm-wordy
+cp -au dist ../../wwwroot/elm-wordy
