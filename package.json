@@ -8,8 +8,8 @@
     "src/wordle-time-travel/index.html"
   ],
   "scripts": {
-    "build": "scripts/build.sh",
-    "start": "rm -rf wwwroot; parcel --dist-dir wwwroot"
+    "build": "rm -rf wwwroot; scripts/build.sh",
+    "start": "npm run build; parcel --dist-dir wwwroot"
   },
   "author": "Adam DiCarlo <97462+adamdicarlo@users.noreply.github.com>",
   "devDependencies": {
