@@ -16,5 +16,5 @@ cd ..
 git clone --depth=1 https://github.com/adamdicarlo/elm-wordy
 cd elm-wordy
 yarn --frozen-lockfile
-yarn build --public-url /elm-wordy
-cp -au dist ../../wwwroot/elm-wordy
+yarn build
+cp -au build ../../wwwroot/elm-wordy
