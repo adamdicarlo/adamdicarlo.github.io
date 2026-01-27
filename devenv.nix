@@ -23,7 +23,7 @@
     scripts/build.sh
   '';
   scripts.start.exec = ''
-    build && parcel --dist-dir wwwroot
+    bunx parcel --dist-dir wwwroot
   '';
 
   # https://devenv.sh/basics/
