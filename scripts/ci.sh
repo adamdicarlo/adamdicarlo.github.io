@@ -9,7 +9,8 @@ ln -s "${PWD}/.bin/nix" .bin/nix-store
 ln -s "${PWD}/.bin/nix" .bin/nix-shell
 export PATH=$PWD/.bin:$PATH
 
-export NIX_STORE=$NETLIFY_CACHE_DIR
 NP_GIT=$(which git)
 export NP_GIT
+export NIX_STORE=$NETLIFY_CACHE_DIR
+export NP_RUNTIME=bwrap
 nix-shell -p devenv --run "devenv --nix-option sandbox false shell build"
