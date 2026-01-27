@@ -12,5 +12,7 @@ export PATH=$PWD/.bin:$PATH
 NP_GIT=$(which git)
 export NP_GIT
 export NIX_STORE=$NETLIFY_CACHE_DIR
+
+# https://github.com/DavHau/nix-portable/issues/138
 export NP_RUNTIME=bwrap
-nix-shell -p devenv --run "devenv --nix-option sandbox false shell build"
+nix-shell -p devenv --run "devenv shell build"
