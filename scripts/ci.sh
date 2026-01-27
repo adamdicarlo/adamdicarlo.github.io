@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -ex
 
 SYSTEM=$(uname -m)
 mkdir .bin
@@ -11,4 +11,4 @@ echo --------------------
 echo PATH=$PATH
 ls -lah
 echo --------------------
-./nix shell nixpkgs#{bashInteractive,devenv} -c bash -c "devenv shell build"
+nix shell nixpkgs#{bashInteractive,devenv} -c bash -c "devenv shell build"
