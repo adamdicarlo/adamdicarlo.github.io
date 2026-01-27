@@ -1,4 +1,4 @@
-* {
+html {
   font-family: Inconsolata, monospace;
   font-size: 16px;
   line-height: 1;
@@ -12,10 +12,10 @@
 }
 
 #about {
-  background: rgba(25, 25, 25, 0.8);
+  background: rgba(33, 33, 33, 0.8);
   border-radius: 6px;
   bottom: 30px;
-  color: #eee;
+  color: #fff;
   padding: 2rem;
   position: fixed;
   right: 30px;
@@ -25,7 +25,7 @@
   z-index: 1;
 }
 #about.show:hover {
-  background: rgba(33, 33, 33, 1);
+  background: rgba(0, 0, 0, 1);
   color: #fff;
   transform: scale(1.05);
 }
@@ -37,12 +37,14 @@ h2 {
 
 h1 {
   font-weight: 100;
-  font-size: 44px;
-  margin: -6px 0 4px;
+  font-size: 3rem;
+  line-height: 0.8;
+  margin: 0 0 1rem;
 }
 
 h2 {
-  font-size: 16px;
+  font-size: 1.25rem;
+  margin: 0 0 2rem;
 }
 
 a,
@@ -50,7 +52,7 @@ a:link,
 a:focus,
 a:visited,
 a:active {
-  color: #1aafae;
+  color: #4ed7d7;
   text-decoration: none;
 }
 
@@ -65,7 +67,7 @@ p {
 ul {
   list-style: none;
   padding-left: 0;
-  margin: 0 0 48px;
+  margin: 0 0 1rem;
 
   text-align: left;
 }
