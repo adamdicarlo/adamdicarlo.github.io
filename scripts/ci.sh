@@ -5,8 +5,8 @@ SYSTEM=$(uname -m)
 mkdir .bin
 curl -L https://github.com/DavHau/nix-portable/releases/latest/download/nix-portable-"${SYSTEM}" >.bin/nix
 chmod +x .bin/nix
-ln -s .bin/nix .bin/nix-store
-ln -s .bin/nix .bin/nix-shell
+ln -s "${PWD}/.bin/nix" .bin/nix-store
+ln -s "${PWD}/.bin/nix" .bin/nix-shell
 export PATH=$PWD/.bin:$PATH
 
 NP_GIT=$(which git)
