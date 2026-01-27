@@ -1,20 +1,27 @@
-#!/bin/sh
+#!/usr/bin/env bash
+if [[ -z "$DEVENV_ROOT" ]]; then
+  exec devenv shell "$0"
+fi
+set -e
+
 rm -rf wwwroot
-parcel build --dist-dir wwwroot
+bun x parcel build --dist-dir wwwroot
 
 rm -rf external
 mkdir external
 
-cd external
-git clone --depth=1 https://github.com/adamdicarlo/elm-tangly
-cd elm-tangly
-yarn --frozen-lockfile
-yarn build --public-url /elm-tangly
-cp -au dist ../../wwwroot/elm-tangly
-cd ..
+(
+  cd external
+  git clone --depth=1 https://github.com/adamdicarlo/elm-tangly
+  cd elm-tangly
+  devenv shell build
+  cp -au dist ../../wwwroot/elm-tangly
+)
 
-git clone --depth=1 https://github.com/adamdicarlo/elm-wordy
-cd elm-wordy
-yarn --frozen-lockfile
-yarn build
-cp -au build ../../wwwroot/elm-wordy
+(
+  cd external
+  git clone --depth=1 https://github.com/adamdicarlo/elm-wordy
+  cd elm-wordy
+  devenv shell build
+  cp -au dist ../../wwwroot/elm-wordy
+)
