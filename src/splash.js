@@ -1,6 +1,7 @@
 import { colord, random } from "colord"
 
 const canvas = document.createElement("canvas")
+const context = canvas.getContext("2d")
 let width, height
 let about = {
   el: undefined,
@@ -75,7 +76,6 @@ function randomize() {
 }
 
 function render() {
-  const context = canvas.getContext("2d")
 
   const angle = frame * theta
   renderGradient(context, 45 + Math.cos(frame * toRadians), colors_, 1.0)
