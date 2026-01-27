@@ -2,9 +2,13 @@
 set -e
 
 SYSTEM=$(uname -m)
-curl -L https://github.com/DavHau/nix-portable/releases/latest/download/nix-portable-"${SYSTEM}" >./nix-portable
-chmod +x ./nix-portable
-
-nix bundle --bundler github:DavHau/nix-portable -o devenv ".#devShells.${SYSTEM}.default"
-chmod +w ./devenv/bin/devenv ./devenv
-./devenv/bin/devenv build
+mkdir .bin
+curl -L https://github.com/DavHau/nix-portable/releases/latest/download/nix-portable-"${SYSTEM}" >.bin/nix
+chmod +x .bin/nix
+ln -s .bin/nix .bin/nix-store
+export PATH=$PWD/.bin:$PATH
+echo --------------------
+echo PATH=$PATH
+ls -lah
+echo --------------------
+./nix shell nixpkgs#{bashInteractive,devenv} -c bash -c "devenv shell build"
