@@ -12,4 +12,4 @@ export PATH=$PWD/.bin:$PATH
 export NIX_STORE=$NETLIFY_CACHE_DIR
 NP_GIT=$(which git)
 export NP_GIT
-nix-shell -p devenv --run "devenv shell build"
+nix-shell -p devenv --run "devenv --nix-option sandbox false shell build"
