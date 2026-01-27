@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ex
+set -e
 
 SYSTEM=$(uname -m)
 mkdir .bin
@@ -11,7 +11,6 @@ export PATH=$PWD/.bin:$PATH
 
 NP_GIT=$(which git)
 export NP_GIT
-export NIX_STORE=$NETLIFY_CACHE_DIR
 
 # https://github.com/DavHau/nix-portable/issues/138
 export NP_RUNTIME=bwrap
