@@ -14,7 +14,7 @@ mkdir external
   cd external
   git clone --depth=1 https://github.com/adamdicarlo/elm-tangly
   cd elm-tangly
-  devenv shell build
+  devenv shell -- build --base /elm-tangly
   cp -au dist ../../wwwroot/elm-tangly
 )
 
@@ -22,6 +22,6 @@ mkdir external
   cd external
   git clone --depth=1 https://github.com/adamdicarlo/elm-wordy
   cd elm-wordy
-  devenv shell build
+  devenv shell -- build --base /elm-wordy
   cp -au dist ../../wwwroot/elm-wordy
 )
